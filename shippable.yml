@@ -16,7 +16,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: "ric03uec-hub"
+    - integrationName: "dockerhub-ric03uec"
       type: docker
       branches:
         only:
