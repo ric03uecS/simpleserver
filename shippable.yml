@@ -10,23 +10,14 @@ build:
   ci:
     - sudo docker -v
     - echo "$BRANCH.$SHIPPABLE_BUILD_NUMBER"
-    - sudo docker build -t trriplejay/simpleserver:$BRANCH.$SHIPPABLE_BUILD_NUMBER --build-arg mytag=$BRANCH.$SHIPPABLE_BUILD_NUMBER .
-    - sudo docker push trriplejay/simpleserver:$BRANCH.$SHIPPABLE_BUILD_NUMBER
+    - sudo docker build -t ric03uec/simpleserver:$BRANCH.$SHIPPABLE_BUILD_NUMBER --build-arg mytag=$BRANCH.$SHIPPABLE_BUILD_NUMBER .
+
+#    - sudo docker push trriplejay/simpleserver:$BRANCH.$SHIPPABLE_BUILD_NUMBER
 
 integrations:
   hub:
-    - integrationName: "trriplejay docker hub"
+    - integrationName: "ric03uec-hub"
       type: docker
       branches:
         only:
           - master
-  notifications:
-    - integrationName: irc
-      type: irc
-      recipients:
-        - "irc.rizon.net#testshippable"
-      branches:
-        only:
-          - master
-      on_success: always
-      on_failure: always
